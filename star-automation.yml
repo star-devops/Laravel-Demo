@@ -18,9 +18,9 @@ projects:
     - name: Laravel
       platform: php:7.2
       commands:
-        - apt-get update -y && apt-get install -y openssl zip unzip git
+        - apt-get update -y && apt-get install -y openssl zip unzip git libxml2-dev
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-        - docker-php-ext-install pdo mbstring bcmath ctype tokenizer xml
+        - docker-php-ext-install pdo mbstring bcmath ctype tokenizer xml json
         - CHECKOUT
         - composer install
       expose: 8080
