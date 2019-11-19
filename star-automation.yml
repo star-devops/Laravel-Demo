@@ -21,7 +21,6 @@ projects:
         - apt-get update -y && apt-get install -y openssl zip unzip git
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         - CHECKOUT
-        - composer install
       expose: 8080
       to-start:
         - php artisan serve --host=0.0.0.0 --port=8080
