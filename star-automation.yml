@@ -23,7 +23,7 @@ projects:
         - CHECKOUT
       expose: 8080
       to-start:
-        - composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8080
+        - sleep 7000
       service:
         - name: laravel-demo
           port: 8080
