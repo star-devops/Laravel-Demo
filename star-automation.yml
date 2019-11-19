@@ -1,0 +1,32 @@
+stages:
+   - Building & migration
+
+build:
+  stage: Building & migration
+  commands:
+     - ls
+
+pre-build:
+  script:
+    - ls
+
+post-build:
+  script:
+    - ls -la
+
+projects:
+    - name: Laravel
+      platform: php:7.2
+      commands:
+        - apt-get update -y && apt-get install -y openssl zip unzip git
+        - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+        - CHECKOUT
+        - composer install
+      expose: 8080
+      to-start:
+        - composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8080
+      service:
+        - name: laravel-demo
+          port: 8080
+      host:
+        - name: laravel-demo.devops5d.com
