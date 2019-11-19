@@ -18,7 +18,7 @@ projects:
     - name: Laravel
       platform: php:7.2
       commands:
-        - apt-get update -y && apt-get install -y openssl zip unzip git
+        - apt-get update -y && apt-get install -y openssl zip unzip git php5-mysql
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         - CHECKOUT
         - composer install
